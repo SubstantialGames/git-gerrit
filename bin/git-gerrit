@@ -192,7 +192,7 @@ getGerritServerAndProject() {
         return
     fi
 
-    local url_line=$($GIT remote show -n origin | grep "Push  URL: " | head -n1)
+    local url_line=$($GIT remote show -n gerrit | grep "Push  URL: " | head -n1)
     local host_and_project=${url_line# *URL: }
 
     host=''
@@ -234,7 +234,7 @@ getBranchInfo() {
     REMOTE=`$GIT config branch.$CURRENT.remote`
 
     if [[ -z "$REMOTE" ]]; then
-        REMOTE=origin
+        REMOTE=gerrit
     fi
 
     TRACK=`$GIT config branch.$CURRENT.merge`
