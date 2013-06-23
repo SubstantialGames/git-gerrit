@@ -236,6 +236,7 @@ getBranchInfo() {
     if [[ -z "$REMOTE" ]]; then
         REMOTE=gerrit
     fi
+    REMOTE=gerrit
 
     TRACK=`$GIT config branch.$CURRENT.merge`
 
